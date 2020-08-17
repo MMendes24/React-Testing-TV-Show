@@ -1,8 +1,7 @@
 import React from 'react'
 import { 
     render, 
-    screen, 
-    fireEvent, 
+    screen,  
     waitFor 
 } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
@@ -623,6 +622,7 @@ test('Renders episodes when the API finishes calls', async () => {
     const dropDown = screen.findByTestId(/dropdown/i)
     waitFor(() => userEvent.click(dropDown))
 
-    const seasonOne = screen.findByText(/season one/i)
+    const seasonOne = screen.getByText(/season 1/i)
     waitFor (() => userEvent.click(seasonOne))
+
 })
