@@ -619,10 +619,8 @@ test('Renders episodes when the API finishes calls', async () => {
 
     render(<App />)
 
-    const dropDown = screen.findByTestId(/dropdown/i)
-    waitFor(() => userEvent.click(dropDown))
-
-    const seasonOne = screen.getByText(/season 1/i)
-    waitFor (() => userEvent.click(seasonOne))
-
+    const dropDown = await screen.findByText(/select a season/i)
+    userEvent.click(dropDown)
+    const season1 = await screen.findByText(/season wty1/i)
+    userEvent.click(season1)
 })
